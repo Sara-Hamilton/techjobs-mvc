@@ -10,14 +10,17 @@ import java.util.HashMap;
  * Created by LaunchCode
  */
 @Controller
-public class HomeController {
+public class HomeController extends TechJobsController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
 
+        /*
+        This was moved to TechJobsController - bonus mission
         HashMap<String, String> actionChoices = new HashMap<>();
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
+        */
 
         model.addAttribute("actions", actionChoices);
 

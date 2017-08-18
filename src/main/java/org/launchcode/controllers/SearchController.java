@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     @RequestMapping(value = "")
     public String search(Model model) {
@@ -39,7 +39,7 @@ public class SearchController {
 
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("jobs", jobs);
-        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchType", searchType); // added to be able to make radio button choice persist - bonus mission
         return "search";
     }
 

@@ -19,14 +19,15 @@
                 <a th:href="@{/}" class="navbar-brand">TechJobs</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a th:href="@{/search}">Search</a></li>
-                    <li><a th:href="@{/list}">List</a></li>
+                <ul th:each="action : ${actions}" class="nav navbar-nav">
+                    <!-- adds hyperlinks - bonus mission -->
+                    <li><a th:href="@{'/' + ${action.key}}" th:text="${action.value}"></a></li>
                 </ul>
             </div>
         </div>
     </div>
 
+    <!--  Loop over jobs map to display all job fields -->
     <div  th:fragment="jobsList">
         <h3 th:if="${jobs}" th:text="${jobs.size()} + ' Result(s)'"></h3>
         <div th:each="job : ${jobs}">
