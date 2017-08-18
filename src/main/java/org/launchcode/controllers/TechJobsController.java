@@ -10,11 +10,9 @@ public class TechJobsController {
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     @ModelAttribute("actions")
+    //  will cause the return value of the method to be set in the model
+    // with key "actions" for every controller that extends TechJobsController.
     public static HashMap getActionChoices() {
-
-        actionChoices.put("search", "Search");
-        actionChoices.put("list", "List");
-
         return actionChoices;
     }
 }
