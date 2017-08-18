@@ -20,7 +20,7 @@
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
+                        th:checked="${column.key == searchType}"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -38,8 +38,7 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
-    <!-- The fragment th:fragment="jobsList" is in the fragments.html template
-    where it belongs -->
+    <!-- The fragment th:fragment="jobsList" is in the fragments.html template -->
     <div th:replace="fragments :: jobsList"></div>
 
 </div>
