@@ -27,15 +27,15 @@ public class SearchController extends TechJobsController {
     @RequestMapping(value = "results")
     public String searchJobs(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
 
-        ArrayList<HashMap<String, String>> jobs;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<HashMap<String, String>>();
         String column = searchType;
         String row = searchTerm;
 
-        if (searchType.equals("all")) {
-           jobs = JobData.findByValue(row);
-        } else {
-            jobs = JobData.findByColumnAndValue(column, row);
-        }
+            if (searchType.equals("all")) {
+                jobs = JobData.findByValue(row);
+            } else {
+                jobs = JobData.findByColumnAndValue(column, row);
+            }
 
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("jobs", jobs);
