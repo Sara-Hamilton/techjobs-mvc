@@ -19,8 +19,8 @@
                 <a th:href="@{/}" class="navbar-brand">TechJobs</a>
             </div>
             <div class="navbar-collapse collapse">
+                <!-- actions ModelAttribute is in TechJobsController - bonus mission -->
                 <ul th:each="action : ${actions}" class="nav navbar-nav">
-                    <!-- adds hyperlinks - bonus mission -->
                     <li><a th:href="@{'/' + ${action.key}}" th:text="${action.value}"></a></li>
                 </ul>
             </div>
@@ -35,7 +35,9 @@
                 <div th:each="column : ${job}">
                     <tr>
                         <th th:text="${#strings.capitalizeWords(column.key)}"></th>
-                        <td><a th:href="@{/list/jobs(column=${column.key}, value=${column.value})}" th:text="${column.value}"></a></td>
+                        <!-- adds hyperlinks - bonus mission -->
+                        <td><a th:href="@{/list/jobs(column=${column.key}, value=${column.value})}"
+                               th:text="${column.value}"></a></td>
                     </tr>
                 </div>
             </table>
