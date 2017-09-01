@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -27,7 +28,10 @@ public class SearchController extends TechJobsController {
     @RequestMapping(value = "results")
     public String searchJobs(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<HashMap<String, String>>();
+        // ArrayList<HashMap<String, String>> jobs = new ArrayList<HashMap<String, String>>();
+        // ArrayList<HashMap<String, String>> jobs;
+        Iterable<HashMap<String, String>> jobs;
+
         String column = searchType;
         String row = searchTerm;
 
